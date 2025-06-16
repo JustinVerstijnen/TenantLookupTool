@@ -1,18 +1,34 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Microsoft 365 Custom Domain Lookup</title>
+  <title>Microsoft 365 Tenant Lookup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body onload="document.getElementById('input').focus();">
-<div class="container">
-  <h2>Microsoft 365 Tenant Lookup via Custom Domein</h2>
-  <input id="input" placeholder="Voer een custom domeinnaam in (bijv. justinverstijnen.nl)" onkeypress="handleKeyPress(event)" />
-  <button onclick="lookupFromCustomDomain()">Zoeken</button>
-  <div id="result"></div>
-</div>
+  <div class="container">
+    <a href="https://justinverstijnen.nl" target="_blank">
+      <img src="https://justinverstijnen.nl/wp-content/uploads/2025/04/cropped-Logo-2.0-Transparant.png" alt="Logo" class="logo">
+    </a>
+    <h1>Microsoft 365 Tenant Lookup</h1>
+    <p class="subtitle">Enter a custom domain or the Microsoft Online (MOERA) domain to retrieve associated Microsoft 365 tenant information.</p>
+    <div class="input-group">
+      <input id="input" placeholder="for example: justinverstijnen.nl" onkeypress="handleKeyPress(event)" />
+      <button onclick="lookupFromCustomDomain()">
+        <i data-lucide="search"></i>&nbsp;Search
+      </button>
+    </div>
+    <div id="result"></div>
+  </div>
+  <footer>
+    <p>Made by Justin Verstijnen</p>
+  </footer>
 <script src="script.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

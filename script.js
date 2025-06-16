@@ -1,3 +1,4 @@
+
 function handleKeyPress(event) {
   if (event.key === 'Enter') {
     lookupFromCustomDomain();
@@ -7,10 +8,12 @@ function handleKeyPress(event) {
 async function lookupFromCustomDomain() {
   const input = document.getElementById("input").value.trim();
   const resultDiv = document.getElementById("result");
+
+  resultDiv.className = ''; // Reset animatie
   resultDiv.innerHTML = "Even zoeken...";
 
   if (!input.includes(".")) {
-    resultDiv.innerHTML = "Voer een geldig domein in.";
+    resultDiv.innerHTML = "Please fill in a valid domain.";
     return;
   }
 
@@ -36,15 +39,19 @@ async function lookupFromCustomDomain() {
       location = "Germany (Microsoft Cloud Deutschland)";
     }
 
-    resultDiv.innerHTML = `<h3>Tenant Informatie:</h3>
+    resultDiv.innerHTML = `<h3>Tenant Information:</h3>
       <table>
-        <tr><th>Custom Domein</th><td>${input}</td></tr>
+        <tr><th>Custom domain</th><td>${input}</td></tr>
         <tr><th>Tenant ID</th><td>${tenantId}</td></tr>
-        <tr><th>Tenant Naam (mogelijk)</th><td>${tenantName}</td></tr>
-        <tr><th>Locatie</th><td>${location}</td></tr>
+        <tr><th>Location</th><td>${location}</td></tr>
         <tr><th>Issuer</th><td>${issuer}</td></tr>
       </table>`;
+
+    setTimeout(() => {
+      resultDiv.className = 'fade-in';
+    }, 50);
   } catch (err) {
+    resultDiv.className = '';
     resultDiv.innerHTML = `Fout: ${err.message}`;
   }
 }
