@@ -10,7 +10,7 @@ async function lookupFromCustomDomain() {
   const resultDiv = document.getElementById("result");
 
   resultDiv.className = ''; // Reset animatie
-  resultDiv.innerHTML = "Even zoeken...";
+  resultDiv.innerHTML = "Searching...";
 
   if (!input.includes(".")) {
     resultDiv.innerHTML = "Please fill in a valid domain.";
