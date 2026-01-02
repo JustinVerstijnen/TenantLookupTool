@@ -1,0 +1,67 @@
+name: Mirror repo A into subdirectory of repo B
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repo (repo A)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout target repo (repo B)
+        uses: actions/checkout@v4
+        with:
+          repository: JustinVerstijnen/swa-jv-toolspage
+          token: ${{ secrets.COLLECTIVE_TOOLS_REPO }}
+          path: target
+          ref: main
+          fetch-depth: 0
+
+      - name: Sync repo A into subfolder in repo B (lowercase name)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Repo-naam uit OWNER/REPO halen
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+
+          # Naar lowercase omzetten
+          REPO_NAME_LOWER="${REPO_NAME,,}"
+
+          TARGET_DIR="target/${REPO_NAME_LOWER}"
+
+          mkdir -p "$TARGET_DIR"
+
+          rsync -a --delete \
+            --exclude ".git/" \
+            --exclude "target/" \
+            --exclude ".github/" \
+            ./ "$TARGET_DIR/"
+
+      - name: Commit & push changes to repo B
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd target
+
+          if git status --porcelain | grep -q .; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+
+            git add -A
+            git commit -m "Mirror ${GITHUB_REPOSITORY}@${GITHUB_SHA}"
+            git push origin HEAD:main
+          else
+            echo "No changes to push."
+          fi
