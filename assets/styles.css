@@ -352,3 +352,24 @@ ul {
     white-space: normal;
     min-width: 260px;
 }
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("https://justinverstijnen.nl/wp-content/uploads/2026/01/Tool_Background_Blurred.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.69;
+    z-index: -1;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.85);
+}
