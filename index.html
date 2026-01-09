@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Microsoft 365 Tenant Lookup - justinverstijnen.nl</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tenantlookuptool/assets/styles.css">
-  <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lookup a Microsoft 365 tenant from a custom domain.">
+<title>Microsoft 365 Tenant Lookup - justinverstijnen.nl</title>
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" type="image/png" href="https://justinverstijnen.nl/wp-content/uploads/2025/04/cropped-Logo-2.0-final.png">
 </head>
 <body onload="document.getElementById('input').focus();">
-  <div class="container">
-    <a href="https://justinverstijnen.nl" target="_blank">
-      <img src="https://justinverstijnen.nl/wp-content/uploads/2025/04/cropped-Logo-2.0-Transparant.png" alt="Logo" class="logo">
-    </a>
-    <h1>Microsoft 365 Tenant Lookup</h1>
-    <p class="subtitle">Enter a custom domain or the Microsoft Online (MOERA) domain to retrieve associated Microsoft 365 tenant information.</p>
-    <div class="input-group">
-      <input id="input" placeholder="for example: justinverstijnen.nl" onkeypress="handleKeyPress(event)" />
-      <button onclick="lookupFromCustomDomain()">
-        <i data-lucide="search"></i>&nbsp;Search
-      </button>
+    <div class="container">
+        <div class="header">
+            <a href="https://justinverstijnen.nl" target="_blank" rel="noopener">
+                <img src="https://justinverstijnen.nl/wp-content/uploads/2025/04/cropped-Logo-2.0-Transparant.png" alt="Logo" width="50" height="50">
+            </a>
+        </div>
+
+        <h1>Microsoft 365 Tenant Lookup</h1>
+        <div class="subtitle">
+            Lookup a Microsoft 365 tenant by entering a custom domain or the default .onmicrosoft.com (MOERA) domain.
+        </div>
+
+        <div class="searchbox">
+            <input id="input" type="text" placeholder="example.com" onkeypress="handleKeyPress(event)" autocomplete="off" spellcheck="false">
+            <button id="lookupBtn" onclick="lookupFromCustomDomain()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" style="vertical-align:middle;margin-right:6px;">
+                    <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+                </svg>
+                Search
+            </button>
+        </div>
+
+        <div id="spinner" class="spinner-container" style="display:none;">
+            <div class="spinner"></div>
+        </div>
+
+        <div id="resultsSection" style="display:none;"></div>
+
+        <div class="footer">
+            <a href="https://github.com/JustinVerstijnen/TenantLookupTool" target="_blank" rel="noopener">© <span id="year"></span> Microsoft 365 Tenant Lookup tool by Justin Verstijnen. Click here to visit GitHub project.</a>
+        </div>
     </div>
-    <div id="result"></div>
-  </div>
-  <footer>
-    <p>Made by Justin Verstijnen</p>
-  </footer>
-<script src="tenantlookuptool/assets/script.js"></script>
-<script>lucide.createIcons();</script>
+
+<script src="assets/script.js"></script>
 </body>
 </html>

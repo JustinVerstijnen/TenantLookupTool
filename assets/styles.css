@@ -1,112 +1,354 @@
-
-:root {
-  --primary-color: #8EAFDA;
-  --bg-color: #f9fafb;
-  --text-color: #111827;
-  --border-radius: 0.5rem;
-  --font-family: 'Segoe UI', sans-serif;
+:root{
+    --control-height: 44px;
 }
 
 body {
-  font-family: var(--font-family);
-  margin: 0;
-  padding: 2rem;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-  max-width: 900px;
-  margin: auto;
-  background: white;
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  text-align: center;
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
-.logo {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 1rem;
+/* =========================
+   Header
+   ========================= */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
 }
 
 h1 {
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
+    text-align: center;
+    margin: 10px 0;
 }
 
 .subtitle {
-  color: #6b7280;
-  margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-.input-group {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
+.searchbox {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-input {
-  flex: 1;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: var(--border-radius);
-  font-size: 1rem;
-  max-width: 400px;
+/* =========================
+   Input (reference height)
+   ========================= */
+input[type="text"] {
+    height: var(--control-height);
+    padding: 0 10px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    line-height: normal;
 }
 
+/* =========================
+   Buttons (exact same outer height)
+   ========================= */
 button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0 1.5rem;
-  border-radius: var(--border-radius);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    height: var(--control-height);
+    padding: 0 20px;
+    font-size: 16px;
+    margin-left: 10px;
+
+    background-color: #8EAFDA;
+    color: #fff;
+
+    border: 1px solid transparent; /* CRUCIAAL */
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-button:hover {
-  background-color: #6f94c9;
+/* Icons inside buttons */
+button svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* =========================
+   Spinner
+   ========================= */
+.spinner-container {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    margin: 150px 0;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #8EAFDA;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =========================
+   Export button
+   ========================= */
+#exportBtn {
+    background-color: #92dba5;
+}
+
+#exportBtn:hover {
+    background-color: #7ccf95;
+}
+
+/* =========================
+   Tables
+   ========================= */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: #fff;
 }
 
 table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 0.5rem;
-  margin-top: 1.5rem;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+}
+
+thead {
+    background-color: #f8f9fa;
+}
+
+th:first-child {
+    white-space: nowrap;
 }
 
 th, td {
-  text-align: left;
-  padding: 0.75rem 1rem;
-  background: #f9fafb;
-  border-radius: var(--border-radius);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    padding: 15px;
+    text-align: left;
+    vertical-align: top;
+    word-break: break-word;
+    max-width: 600px;
 }
 
-th {
-  font-weight: 600;
-  background: #e5e7eb;
+tbody tr:nth-child(even) {
+    background-color: #f6f6f6;
 }
 
-footer {
-  margin-top: 2rem;
-  text-align: center;
-  color: #9ca3af;
-  font-size: 0.875rem;
+/* =========================
+   Info box
+   ========================= */
+.infobox {
+    background-color: #e0f0ff;
+    border: 1px solid #aad;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
-.fade-in {
-  opacity: 0;
-  animation: fadeInAnimation 0.8s ease-in-out forwards;
+ul {
+    margin: 0;
+    padding-left: 20px;
 }
 
-@keyframes fadeInAnimation {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* =========================
+   Animation
+   ========================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#resultsSection {
+    animation: fadeIn 0.5s ease;
+}
+
+/* =========================
+   Footer
+   ========================= */
+.footer {
+    text-align: center;
+    font-size: 9px;
+    color: #777;
+    margin-top: 40px;
+}
+
+.footer a {
+    color: #777;
+    text-decoration: none;
+}
+
+/* =========================
+   Tooltip
+   ========================= */
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+    display: none;
+    position: absolute;
+    top: -45%;
+    left: 110%;
+    padding: 12px;
+    background-color: #8EAFDA;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    min-width: 600px;
+    max-width: 1200px;
+    z-index: 50000;
+}
+
+.tooltip:hover .tooltip-text {
+    display: block;
+}
+
+.tooltip-text a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* =========================
+   Record links
+   ========================= */
+.record-link {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+/* =========================
+   Bulk button
+   ========================= */
+-btn {
+    background-color: #ffbc6a;
+}
+
+-btn:hover {
+    filter: brightness(0.95);
+}
+
+/* =========================
+   Bulk modal
+   ========================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 16px;
+}
+
+.modal-content {
+    width: min(820px, 100%);
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+.modal-hint {
+    margin: 10px 0;
+    color: #666;
+}
+
+.bulk-textarea {
+    width: 97%;
+    min-height: 220px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.bulk-run-btn {
+    background: #ffbc6a;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.bulk-run-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =========================
+   Bulk table
+   ========================= */
+#bulkTable td,
+#bulkTable th {
+    white-space: nowrap;
+}
+
+#bulkTable td:last-child,
+#bulkTable th:last-child {
+    white-space: normal;
+    min-width: 260px;
 }
