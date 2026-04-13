@@ -357,7 +357,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background-image: url("https://justinverstijnen.nl/wp-content/uploads/2026/01/Tool_Background_Blurred.jpg");
+    background-image: url("https://sajvwebsiteblobstorage.blob.core.windows.net/blog/tools-2375/featured-background_blur.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
