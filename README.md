@@ -1,72 +1,42 @@
-# Microsoft 365 Tenant Lookup Tool
+# TenantLookupTool
 
-The **Tenant Lookup Tool** is a lightweight web application that lets you retrieve Microsoft 365 tenant details using a custom domain or MOERA (Microsoft Online Email Routing Address) domain.
+TenantLookupTool is a lightweight and web-based Microsoft 365 Tenant lookup tool created by Justin Verstijnen. This tool can be used to lookup your Microsoft 365 tenant using any custom domain or the default MOERA (.onmicrosoft.com) address. This presents you the Tenant ID and location of your Microsoft 365 tenant.
 
-Simply enter a domain name (e.g., `example.com`) and the tool will return key tenant information including the **Tenant ID**, **Issuer URL**, and the **geographic region** where the tenant is hosted.
+## Main features
 
----
+The main features of this tool are:
 
-## 🔍 Features
+- Lookup Microsoft 365 tenants and retrieving information
+   - Custom domain
+   - Tenant ID
+   - Location
+   - Issuer
 
-- ✨ Sleek, responsive user interface
-- 🔐 Uses public Microsoft identity endpoints (OpenID configuration)
-- 🌍 Detects hosting region (e.g., Global, US Gov, China, Germany)
-- ⚡ Instant results with animated feedback
-- 🧠 Smart input validation
+## Hosting
 
----
+This tool is currently hosted on GitHub Pages. Configuration changes are pushed and built using the default deployment method.
 
-## 🚀 Live Demo
+## Technical Architecture
 
-You can try the tool live at: [tenantlookuptool.jvapp.nl](https://tenantlookuptool.jvapp.nl)
+- **Languages** : HTML, CSS, Javascript
+- **Platform** : GitHub Pages
+- **Runtime model** : Serverless
+- **Dependencies** : None
 
----
+## Changelog/new features
 
-## 🧪 How It Works
+New features to this tool are added when needed or if the tool is broken.
 
-1. The user enters a domain name.
-2. The app constructs a query to:
-   ```
-   https://login.microsoftonline.com/<domain>/v2.0/.well-known/openid-configuration
-   ```
-3. If the domain is valid and linked to a Microsoft tenant, the response is parsed to extract:
-   - **Tenant ID**
-   - **Issuer URL**
-   - **Authorization endpoint**
-   - **Region**
+Feature request can be done by submitting issues into GitHub.
 
----
+## Issues
 
-## 🛠️ Project Structure
+Its possible to submit any issues using the GitHub issues system.
 
-```
-TenantLookupTool/
-├── index.html       # Main UI structure
-├── script.js        # JavaScript logic for lookup and UI rendering
-├── styles.css       # Styling and animations
-```
+At this moment, this tool has no known issues.
 
----
+## License
 
-## 📸 Example Output
+This project is licensed under the **MIT license**. This means that the software is open source and can be used to run the tool yourself.
 
-```plaintext
-Tenant Information:
-──────────────────────────────
-Custom domain:     example.com
-Tenant ID:         abcdefgh-1234-ijkl-5678-mnopqrstuvwx
-Location:          Global (Worldwide)
-Issuer:            https://login.microsoftonline.com/abcdefgh-1234-ijkl-5678-mnopqrstuvwx/v2.0
-```
----
-
-## 🙌 Credits
-
-Created by [Justin Verstijnen](https://justinverstijnen.nl)  
-Logo and branding courtesy of the developer's personal brand.
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+Use at your own risk. No guarantees or official support are provided.
