@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lookup a Microsoft 365 tenant by entering a custom domain or the default .onmicrosoft.com (MOERA) domain.">
+<meta name="description" content="Search by domain, .onmicrosoft.com domain or Tenant ID. View tenant details and MX records in clear tables.">
 <title>Microsoft 365 Tenant Lookup - justinverstijnen.nl</title>
 <link rel="stylesheet" href="assets/styles.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082816808518335" crossorigin="anonymous"></script>
@@ -20,11 +20,11 @@
 
         <h1>Microsoft 365 Tenant Lookup</h1>
         <div class="subtitle">
-            Lookup a Microsoft 365 tenant by entering a custom domain or the default .onmicrosoft.com (MOERA) domain.
+            Search by domain, .onmicrosoft.com domain or Tenant ID. View tenant details and MX records in clear tables.
         </div>
 
         <div class="searchbox">
-            <input id="input" type="text" placeholder="example.com" onkeypress="handleKeyPress(event)" autocomplete="off" spellcheck="false">
+            <input id="input" type="text" aria-label="Domain or Tenant ID" placeholder="Domain or Tenant ID" onkeydown="handleKeyPress(event)" autocomplete="off" spellcheck="false">
             <button id="lookupBtn" onclick="lookupFromCustomDomain()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" style="vertical-align:middle;margin-right:6px;">
                     <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
@@ -33,11 +33,16 @@
             </button>
         </div>
 
-        <div id="spinner" class="spinner-container" style="display:none;">
+        <div id="mxDomainGroup" class="mx-domain-group" hidden>
+<label for="mxDomain">Domain for MX records (optional)</label>
+<input id="mxDomain" type="text" placeholder="example.com" aria-describedby="mxHint" onkeydown="handleKeyPress(event)" autocomplete="off" spellcheck="false">
+<p id="mxHint">A Tenant ID has no DNS records. Enter a domain belonging to this tenant to also show its MX records. The domain is verified before querying DNS.</p>
+</div>
+<div id="spinner" role="status" aria-label="Looking up tenant and MX records" class="spinner-container" style="display:none;">
             <div class="spinner"></div>
         </div>
 
-        <div id="resultsSection" style="display:none;"></div>
+        <div id="resultsSection" aria-live="polite" style="display:none;"></div>
 
         <div class="footer">
             <a href="https://github.com/JustinVerstijnen/TenantLookupTool" target="_blank" rel="noopener">© <span id="year"></span> Microsoft 365 Tenant Lookup tool by Justin Verstijnen. Click here to visit GitHub project.</a>
