@@ -373,3 +373,25 @@ body {
 .container {
     background: rgba(255, 255, 255, 0.85);
 }
+/* Tenant and DNS results */
+caption { text-align: left; font-weight: 600; font-size: 1.1rem; padding: 16px; background: #e8f0fa; color: #183958; }
+td { overflow-wrap: anywhere; }
+.mx-domain-group { max-width: 550px; margin: 0 auto 24px; }
+.mx-domain-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+.mx-domain-group input { width: 100%; }
+.mx-domain-group p { font-size: .9rem; color: #444; line-height: 1.5; }
+.error { background: #ffecec; border-color: #f2b8b8; }
+button { background-color: #345f91; margin-left: 0; }
+button:disabled { opacity: .65; cursor: wait; }
+input:focus-visible, button:focus-visible { outline: 3px solid #345f91; outline-offset: 3px; }
+.spinner-container { margin: 35px 0; }
+.footer { font-size: 12px; }
+@media (max-width: 600px) {
+  .container { margin: 12px; padding: 16px; }
+  h1 { font-size: 1.6rem; }
+  .searchbox { flex-direction: column; }
+  .searchbox input, .searchbox button { width: 100%; }
+  .searchbox button { justify-content: center; }
+  th, td { padding: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { #resultsSection { animation: none; } }
