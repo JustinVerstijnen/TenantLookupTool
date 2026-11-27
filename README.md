@@ -14,12 +14,12 @@ The main features of this tool are:
 
 ## Hosting
 
-This tool is currently hosted on GitHub Pages. Configuration changes are pushed and built using the default deployment method.
+This tool is currently hosted on Azure Static Web Apps. Configuration changes are pushed and built using the default deployment method.
 
 ## Technical Architecture
 
-- **Languages** : HTML, CSS, Javascript
-- **Platform** : GitHub Pages
+- **Languages** : HTML, CSS, Javascript and Python
+- **Platform** : Azure Static Web Apps
 - **Runtime model** : Serverless
 - **Dependencies** : None
 
