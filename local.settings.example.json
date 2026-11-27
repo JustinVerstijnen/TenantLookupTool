@@ -1,9 +1,0 @@
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "node",
-    "ENTRA_TENANT_ID": "",
-    "ENTRA_CLIENT_ID": "",
-    "ENTRA_CLIENT_SECRET": ""
-  }
-}
