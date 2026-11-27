@@ -1,42 +1,24 @@
-# TenantLookupTool
+# TenantLookupTool — Azure Static Web Apps
 
-TenantLookupTool is a lightweight and web-based Microsoft 365 Tenant lookup tool created by Justin Verstijnen. This tool can be used to lookup your Microsoft 365 tenant using any custom domain or the default MOERA (.onmicrosoft.com) address. This presents you the Tenant ID and location of your Microsoft 365 tenant.
+Lookup Microsoft 365 tenants by domain or Tenant ID, with the existing design preserved.
 
-## Main features
+- Domain lookup uses public Microsoft OpenID metadata.
+- Reverse lookup returns the default domain and organization name via Microsoft Graph.
+- The API is a Managed Azure Function compatible with Static Web Apps Free (Node 22, Functions programming model v4).
+- Graph credentials are stored in Azure application settings, never in frontend code.
 
-The main features of this tool are:
+Read **[INSTALLATIE.md](INSTALLATIE.md)** for setup, secrets, deployment and integration into the existing collective repository.
 
-- Lookup Microsoft 365 tenants and retrieving information
-   - Custom domain
-   - Tenant ID
-   - Location
-   - Issuer
+## Development
 
-## Hosting
+```sh
+npm ci --prefix api
+npm test
+npm run build
+```
 
-This tool is currently hosted on GitHub Pages. Configuration changes are pushed and built using the default deployment method.
+`index.html` and `assets/` are the frontend sources. `api/` contains the Functions app. The build copies only public files to `dist/`. The standalone deployment workflow is enabled with repository variable `SWA_DEPLOY_ENABLED=true`; the existing mirror workflow is retained for collective hosting.
 
-## Technical Architecture
+The public API requires an Entra app registration with application permission `CrossTenantInformation.ReadBasic.All` and admin consent. Set `ENTRA_TENANT_ID`, `ENTRA_CLIENT_ID` and `ENTRA_CLIENT_SECRET` in Azure.
 
-- **Languages** : HTML, CSS, Javascript
-- **Platform** : GitHub Pages
-- **Runtime model** : Serverless
-- **Dependencies** : None
-
-## Changelog/new features
-
-New features to this tool are added when needed or if the tool is broken.
-
-Feature request can be done by submitting issues into GitHub.
-
-## Issues
-
-Its possible to submit any issues using the GitHub issues system.
-
-At this moment, this tool has no known issues.
-
-## License
-
-This project is licensed under the **MIT license**. This means that the software is open source and can be used to run the tool yourself.
-
-Use at your own risk. No guarantees or official support are provided.
+Original project by Justin Verstijnen. MIT license; see LICENSE.

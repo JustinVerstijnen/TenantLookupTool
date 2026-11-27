@@ -1,0 +1,59 @@
+name: Tool feedback form
+description: Report an issue, incorrect behavior, complaint, or improvement for a tool.
+title: "[Tool feedback]: "
+
+body:
+  - type: dropdown
+    id: problem-type
+    attributes:
+      label: Type of issue
+      description: Select the option that best describes your issue with the tool.
+      options:
+        - Typo, spelling, or grammar error
+        - Incorrect behavior or result
+        - Outdated information or functionality
+        - Display issue
+        - Tool feature not working
+        - Complaint
+    validations:
+      required: true
+
+  - type: input
+    id: tool
+    attributes:
+      label: Tool
+      description: Enter the name or URL of the tool related to this issue.
+      placeholder: "Example: Intune configuration generator"
+    validations:
+      required: true
+
+  - type: input
+    id: feature
+    attributes:
+      label: Feature or section
+      description: Which feature, function, or section of the tool does this issue relate to?
+      placeholder: 'Example: "Policy export" or "Entire tool"'
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-improvement
+    attributes:
+      label: How should this be improved?
+      description: Explain what is currently wrong and how you would prefer the tool to behave or be changed.
+      placeholder: |
+        Please describe:
+        - What exactly is currently wrong or unclear
+        - What you expected to happen or see
+        - How the tool could be improved
+    validations:
+      required: true
+
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Upload any screenshots that help explain the issue. Please exclude sensitive or personal information (PII) before uploading.
+    validations:
+      required: false
+      accept: ".png,.jpg,.jpeg,.gif,.webp"
