@@ -1,32 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Lookup a Microsoft 365 tenant by entering a custom domain, the default .onmicrosoft.com (MOERA) domain, or a Tenant ID.">
-<title>Microsoft 365 Tenant Lookup - justinverstijnen.nl</title>
-<link rel="stylesheet" href="assets/styles.css">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082816808518335" crossorigin="anonymous"></script>
-<link rel="icon" type="image/svg+xml" href="https://sajvwebsiteblobstorage.blob.core.windows.net/blog/tools-2375/logo.svg">
-<script defer src="https://cloud.umami.is/script.js" data-website-id="3ce7d7a4-539b-4d3c-981e-e96189fa5ac8"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lookup a Microsoft 365 tenant by entering a custom domain, the default .onmicrosoft.com (MOERA) domain, or a Tenant ID.">
+
+    <title>Microsoft 365 Tenant Lookup - justinverstijnen.nl</title>
+
+    <link rel="stylesheet" href="assets/styles.css">
+
+    <style>
+        html,
+        body {
+            scrollbar-width: none;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082816808518335"
+        crossorigin="anonymous">
+    </script>
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="https://sajvwebsiteblobstorage.blob.core.windows.net/blog/tools-2375/logo.svg">
+
+    <script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id="3ce7d7a4-539b-4d3c-981e-e96189fa5ac8">
+    </script>
 </head>
+
 <body onload="document.getElementById('input').focus();">
     <div class="container">
         <div class="header">
             <a href="https://justinverstijnen.nl" target="_blank" rel="noopener">
-                <img src="https://sajvwebsiteblobstorage.blob.core.windows.net/blog/tools-2375/logo.svg" alt="Logo" width="50" height="50">
+                <img
+                    src="https://sajvwebsiteblobstorage.blob.core.windows.net/blog/tools-2375/logo.svg"
+                    alt="Logo"
+                    width="50"
+                    height="50">
             </a>
         </div>
 
         <h1>Microsoft 365 Tenant Lookup</h1>
+
         <div class="subtitle">
-            Lookup a Microsoft 365 tenant by entering a custom domain, the default .onmicrosoft.com (MOERA) domain, or a Tenant ID.
+            Lookup a Microsoft 365 tenant by entering a custom domain,
+            the default .onmicrosoft.com (MOERA) domain, or a Tenant ID.
         </div>
 
         <div class="searchbox">
-            <input id="input" type="text" placeholder="Domain or Tenant ID" aria-label="Domain or Tenant ID" onkeypress="handleKeyPress(event)" autocomplete="off" spellcheck="false">
+            <input
+                id="input"
+                type="text"
+                placeholder="Domain or Tenant ID"
+                aria-label="Domain or Tenant ID"
+                onkeypress="handleKeyPress(event)"
+                autocomplete="off"
+                spellcheck="false">
+
             <button id="lookupBtn" onclick="lookupFromCustomDomain()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" style="vertical-align:middle;margin-right:6px;">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    style="vertical-align:middle;margin-right:6px;">
                     <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
                 </svg>
                 Search
@@ -40,22 +89,36 @@
         <div id="resultsSection" style="display:none;"></div>
 
         <div class="footer">
-            <a href="https://github.com/JustinVerstijnen/TenantLookupTool" target="_blank" rel="noopener">© <span id="year"></span> Microsoft 365 Tenant Lookup tool by Justin Verstijnen. Click here to visit GitHub project.</a>
+            <a
+                href="https://github.com/JustinVerstijnen/TenantLookupTool"
+                target="_blank"
+                rel="noopener">
+                © <span id="year"></span> Microsoft 365 Tenant Lookup tool
+                by Justin Verstijnen. Click here to visit GitHub project.
+            </a>
         </div>
     </div>
 
-<script src="assets/config.js"></script>
-<script src="assets/script.js"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082816808518335"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-4082816808518335"
-     data-ad-slot="9865066433"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    <script src="assets/config.js"></script>
+    <script src="assets/script.js"></script>
+
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082816808518335"
+        crossorigin="anonymous">
+    </script>
+
+    <ins
+        class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-4082816808518335"
+        data-ad-slot="9865066433">
+    </ins>
+
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 </body>
 </html>
